@@ -13,13 +13,13 @@ function RenderviewItem ({detail}) {
                      <Table striped bordered hover>
              
              <tbody>
-                    <tr>
-                 <td>{(detail.id)}</td>
+                <tr>
+                 
                  <td>{detail.name}</td>
                  <td>{detail.email}</td>
                  <td>{detail.phone}</td>
                 <td>{detail.credit}</td>
-                <td><Link to={`/view/${detail.id}`}  ><Button > view </Button></Link> </td>
+                <td><Link to={`/transaction/${detail.id}`}  ><Button >transfer credit  </Button></Link> </td>
                  </tr>
               </tbody>     
   
@@ -58,7 +58,7 @@ function RenderviewItem ({detail}) {
                                     <Table striped bordered hover>
                                         <thead>
                                             <tr>
-                                                <th>id</th>
+                                               
                                                 <th> Name</th>
                                                 <th>email</th>
                                                 <th>phone number</th>

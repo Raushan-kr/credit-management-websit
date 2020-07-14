@@ -9,7 +9,7 @@ export const Detail=[
     },
     {
         id:2,
-        name: "gopi",
+        name: "Ram",
         email:"gopi123@cmail.com",
         phone:5963258512,
         credit:52000
@@ -17,7 +17,7 @@ export const Detail=[
     },
     {
         id:3,
-        name: "gopi",
+        name: "Shyam",
         email:"gopi123@cmail.com",
         phone:5963258512,
         credit:52000
@@ -25,7 +25,7 @@ export const Detail=[
     },
     {
         id:4,
-        name: "gopi",
+        name: "Mohan",
         email:"gopi123@cmail.com",
         phone:5963258512,
         credit:52000
@@ -33,7 +33,7 @@ export const Detail=[
     },
     {
         id:5,
-        name: "gopi",
+        name: "sohan",
         email:"gopi123@cmail.com",
         phone:5963258512,
         credit:52000
@@ -41,7 +41,7 @@ export const Detail=[
     },
     {
         id:6,
-        name: "gopi",
+        name: "Rakesh",
         email:"gopi123@cmail.com",
         phone:5963258512,
         credit:52000
@@ -49,7 +49,7 @@ export const Detail=[
     },
     {
         id:7,
-        name: "gopi",
+        name: "suresh",
         email:"gopi123@cmail.com",
         phone:5963258512,
         credit:52000
