@@ -1,7 +1,7 @@
 import React,{Component} from 'react';
 import { Card, CardBody,
-    Table,Jumbotron,Button ,Collapse,CardHeader,CardTitle,Dropdown, DropdownToggle, DropdownMenu, DropdownItem} from 'reactstrap';
-    import { Link } from 'react-router-dom';
+    Table,Jumbotron,Button ,Collapse,CardHeader,CardTitle,Input,Form,FormGroup,Label,Col} from 'reactstrap';
+
 
 
 class PersonDetail extends Component{
@@ -10,20 +10,34 @@ class PersonDetail extends Component{
         super(props);
         this.state = {
             open:false,
-            dropdownOpen:false
+            value:"gopi",
+            amount:""
         }
         this.handleClick = this.handleClick.bind(this);
-        this.toggle=this.toggle.bind(this);
+        this.handlechange=this.handlechange.bind(this);
+        this.handlesubmit=this.handlesubmit.bind(this);
+        this.handleInputChange=this.handleInputChange.bind(this);
     }
+    handleInputChange(event) {
+        const target = event.target;
+        const value =  target.value;
+       
 
+        this.setState({
+          amount: value
+        });
+    }
     handleClick() {
         this.setState({ open:!this.state.open });
        
       }
+    handlesubmit(){
+        alert(this.state.value+this.state.amount);
+    }  
 
 
-      toggle(){
-       this.setState({dropdownOpen:!this.state.dropdownOpen});
+      handlechange(event){
+       this.setState({value:event.target.value});
       }
     renderviewItem(detail) {
    
@@ -107,31 +121,47 @@ render(){
                            </CardTitle>     
                          </CardHeader>   
                     <CardBody>
-                    <dl className="row ">
+                    <dl className="">
                                         <dt className="col-6 offset-sm-2">From :</dt>
                                         <dd className="col-4">{this.props.detail.name}</dd>
-                                        <dt className="col-6 offset-sm-2">Transfer to :</dt>
-                                        <dd className="col-4">
-                                            <Dropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
-                                                <DropdownToggle caret>
-                                                    <input/>
-                                                    </DropdownToggle>
-                                                <DropdownMenu>
-                                                    <DropdownItem >gopi</DropdownItem>
-                                                    <DropdownItem>Ram</DropdownItem>
-                                                    <DropdownItem >Shyam</DropdownItem>
-                                                    
-                                                    <DropdownItem>Mohan</DropdownItem>
-                                                    <DropdownItem>sohan</DropdownItem>
-                                                    <DropdownItem>Rakesh</DropdownItem>
-                                                    <DropdownItem>suresh</DropdownItem>
-                                                </DropdownMenu>
-                                             </Dropdown>   
-                                                </dd>
-                                        <dt className="col-6 offset-sm-2">Amount :</dt>
-                                        <dd className="col-4"><input/></dd>
+                                        
+                                        <Form onSubmit={this.handlesubmit}>
+                                            <FormGroup row>
+                                                <Label htmlFor="Transfer to" md={2}>Transfer to:</Label>
+                                                <Col md={10}>
+                                                    <select value={this.state.value} onchange={this.handlechange}>
+                                                        <option value="gopi">gopi</option>
+                                                        <option value="ram">Ram</option>
+                                                        <option value="shyam">Shyam</option>
+                                                        <option value="mohan">Mohan</option>
+                                                        <option value="sohan">sohan</option>
+                                                        <option value="rakesh">rakesh</option>
+                                                        <option value="suresh">suresh</option>
+                                                    </select>
+                                                </Col>
+                                            </FormGroup>
+                                            <FormGroup row>       
+                                            <Label htmlFor="Amount" md={2}>Amount:</Label>
+                                            <Col md={5}>
+                                                <Input type="text" id="lastname" name="lastname"
+                                                    placeholder="Amount"
+                                                    value={this.state.amount}
+                                                    onChange={this.handleInputChange} />
+                                                     </Col>
+                                            </FormGroup>
+                                            <div class="col-12 offset-sm-3"> <Button type="submit" color="primary" variant="primary" onSubmit={this.handlesubmit}>Transfer</Button></div>        
+
+                                         </Form> 
+                                       
+                                     
+                                         
+                                              
+                                         
+
+                                               
+                                        
                         </dl>
-                        <Link to='/view' ><div class="col-12 offset-sm-6"> <Button  variant="primary">Transfer</Button></div></Link>
+                        
                      </CardBody>
                      </Card>
  

@@ -7,7 +7,7 @@ import Contact from  './ContactusComponent';
 import Footer from './FooterComponent';
 import View from './viewComponent';
 import PersonDetail from './personDetailComponent';
-import Transaction from './TransferComponent'
+
 class Main extends Component {
 
     constructor(props){
@@ -25,12 +25,7 @@ class Main extends Component {
                   />
             );
           };
-          const person = ({match}) => {
-            return(
-                <Transaction detail={this.state.detail.filter((detail) => detail.id === parseInt(match.params.detailId,10))[0]}
-                  />
-            );
-          };
+          
           return(
 
             <div>
@@ -39,7 +34,7 @@ class Main extends Component {
                 <Route path='/home' component={HomePage} />
                 <Route exact path='/view' component={()=><View detail={this.state.detail}/>} />
                 <Route  path='/view/:detailId' component={DetailwithId}/>
-                <Route path='/transaction/' component={person}/>
+            
                 <Route exact path='/contactus' component={Contact}/>} />
                  
                 <Redirect to="/home" />
