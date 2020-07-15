@@ -1,6 +1,7 @@
 import React,{Component} from 'react';
 import { Card, CardBody,
-    Table,Jumbotron,Button ,Collapse,CardHeader,CardTitle,Input,Form,FormGroup,Label,Col} from 'reactstrap';
+    Table,Jumbotron,Button ,Collapse,CardHeader,CardTitle,Input,Form,FormGroup,Label,Col}  from 'reactstrap';
+ 
 
 
 
@@ -31,13 +32,16 @@ class PersonDetail extends Component{
         this.setState({ open:!this.state.open });
        
       }
-    handlesubmit(){
-        alert(this.state.value+this.state.amount);
+    handlesubmit(event){
+        alert(this.state.value+this.state.amount)
+        event.preventDefault();
     }  
 
 
       handlechange(event){
-       this.setState({value:event.target.value});
+         
+        this.setState({ value: event.target.value });
+       
       }
     renderviewItem(detail) {
    
@@ -125,35 +129,37 @@ render(){
                                         <dt className="col-6 offset-sm-2">From :</dt>
                                         <dd className="col-4">{this.props.detail.name}</dd>
                                         
-                                        <Form onSubmit={this.handlesubmit}>
-                                            <FormGroup row>
-                                                <Label htmlFor="Transfer to" md={2}>Transfer to:</Label>
-                                                <Col md={10}>
-                                                    <select value={this.state.value} onchange={this.handlechange}>
-                                                        <option value="gopi">gopi</option>
-                                                        <option value="ram">Ram</option>
-                                                        <option value="shyam">Shyam</option>
-                                                        <option value="mohan">Mohan</option>
-                                                        <option value="sohan">sohan</option>
-                                                        <option value="rakesh">rakesh</option>
-                                                        <option value="suresh">suresh</option>
-                                                    </select>
-                                                </Col>
-                                            </FormGroup>
-                                            <FormGroup row>       
-                                            <Label htmlFor="Amount" md={2}>Amount:</Label>
-                                            <Col md={5}>
-                                                <Input type="text" id="lastname" name="lastname"
-                                                    placeholder="Amount"
-                                                    value={this.state.amount}
-                                                    onChange={this.handleInputChange} />
-                                                     </Col>
-                                            </FormGroup>
-                                            <div class="col-12 offset-sm-3"> <Button type="submit" color="primary" variant="primary" onSubmit={this.handlesubmit}>Transfer</Button></div>        
+                                        
+<Form onSubmit={this.handlesubmit}>
+                                           
+<Label htmlFor="Transfer to" md={2}>Transfer to:</Label>
 
-                                         </Form> 
-                                       
-                                     
+    <select value={this.state.value} onChange={this.handlechange}>
+        <option value="gopi">gopi</option>
+        <option value="ram">Ram</option>
+        <option value="shyam">Shyam</option>
+        <option value="mohan">Mohan</option>
+        <option value="sohan">sohan</option>
+        <option value="rakesh">rakesh</option>
+        <option value="suresh">suresh</option>
+    </select>
+
+
+<FormGroup row>       
+<Label htmlFor="Amount" md={2}>Amount:</Label>
+<Col md={5}>
+<Input type="text" id="amount" name="amount"
+    placeholder="Amount"
+    value={this.state.amount}
+    onChange={this.handleInputChange} />
+     </Col>
+</FormGroup>
+<div class="col-12 offset-sm-3"> <Button type="submit" color="primary" variant="primary" onSubmit={this.handlesubmit}>Transfer</Button></div>        
+
+</Form> 
+
+
+                                        
                                          
                                               
                                          
