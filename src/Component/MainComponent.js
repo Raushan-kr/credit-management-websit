@@ -1,27 +1,28 @@
 import React,{Component} from 'react';
-import { Switch, Route, Redirect } from 'react-router-dom';
-import {Detail} from '../shared/detail';
+import { Switch, Route, Redirect,withRouter } from 'react-router-dom';
+
 import  Header from './HeaderComponent';
 import HomePage from './Homecomponent';
 import Contact from  './ContactusComponent';
 import Footer from './FooterComponent';
 import View from './viewComponent';
 import PersonDetail from './personDetailComponent';
+import { connect } from 'react-redux';
+
+const mapStateToProps = state => {
+  return {
+    detail: state.detail
+  }
+}
 
 class Main extends Component {
 
-    constructor(props){
-        super(props);
-        this.state = {
-            detail:Detail
-        };
-        
-    }
+   
     render()
     { 
         const DetailwithId = ({match}) => {
             return(
-                <PersonDetail detail={this.state.detail.filter((detail) => detail.id === parseInt(match.params.detailId,10))[0]}
+                <PersonDetail detail={this.props.detail.filter((detail) => detail.id === parseInt(match.params.detailId,10))[0]}
                   />
             );
           };
@@ -32,7 +33,7 @@ class Main extends Component {
                 <Header />
                 <Switch>
                 <Route path='/home' component={HomePage} />
-                <Route exact path='/view' component={()=><View detail={this.state.detail}/>} />
+                <Route exact path='/view' component={()=><View detail={this.props.detail}/>} />
                 <Route  path='/view/:detailId' component={DetailwithId}/>
             
                 <Route exact path='/contactus' component={Contact}/>} />
@@ -46,4 +47,4 @@ class Main extends Component {
     
         }
 }
-export default Main;
+export default withRouter(connect(mapStateToProps)(Main));

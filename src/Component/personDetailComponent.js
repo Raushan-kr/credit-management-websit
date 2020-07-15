@@ -1,6 +1,7 @@
 import React,{Component} from 'react';
 import { Card, CardBody,
     Table,Jumbotron,Button ,Collapse,CardHeader,CardTitle,Input,Form,FormGroup,Label,Col}  from 'reactstrap';
+
  
 
 
@@ -35,6 +36,11 @@ class PersonDetail extends Component{
     handlesubmit(event){
         alert(this.state.value+this.state.amount)
         event.preventDefault();
+        this.setState({
+            value:"gopi",
+            amount:""
+        });
+        
     }  
 
 
