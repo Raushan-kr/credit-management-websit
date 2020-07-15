@@ -1,12 +1,10 @@
 import React,{Component} from 'react';
 import { Card, CardBody,
-    Table,Jumbotron,Button, CardTitle,input } from 'reactstrap';
+    Jumbotron,Button, CardTitle,input } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import CardHeader from 'reactstrap/lib/CardHeader';
 class Transfer extends Component{
-    constructor(props){
-        super(props);
-    }
+    
 
 
     render(){
