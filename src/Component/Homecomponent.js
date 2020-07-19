@@ -49,7 +49,7 @@ class Homepage extends Component{
                         <CardText>
                             With supporting text below as a natural lead-in to additional content.
                         </CardText>
-                        <Link to='/view' > <Button variant="primary">All transaction</Button></Link>
+                        <Link to='/transfer' > <Button variant="primary">All transaction</Button></Link>
                     </CardBody>
                  </Card>
            </div>

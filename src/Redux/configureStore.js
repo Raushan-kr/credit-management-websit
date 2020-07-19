@@ -1,10 +1,15 @@
-import {createStore} from 'redux';
-import { Reducer, initialState } from './Reducer'
+import {createStore,combineReducers,applyMiddleware} from 'redux';
+import {Detail} from './detail';
+import {Transfer} from './transfer';
+import thunk from 'redux-thunk';
+import logger from 'redux-logger'
 
 export const ConfigureStore = () => {
     const store = createStore(
-        Reducer, // reducer
-        initialState, // our initialState
+       combineReducers({
+           detail:Detail,
+           transfer:Transfer
+       }),applyMiddleware(thunk, logger)
     );
 
     return store;

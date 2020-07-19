@@ -10,20 +10,21 @@ function RenderviewItem ({detail}) {
             
                <CardBody> 
                
-                     <Table striped bordered hover>
-             
+               <Table striped bordered hover>
              <tbody>
+             
                     <tr>
-                 <td>{(detail.id)}</td>
+                {/* <td>{(detail.id)}</td>  */}
                  <td>{detail.name}</td>
                  <td>{detail.email}</td>
                  <td>{detail.phone}</td>
                 <td>{detail.credit}</td>
-                <td><Link to={`/view/${detail.id}`}  ><Button > view </Button></Link> </td>
+                <td><Link to={`/view/${detail._id}`}  ><Button > view </Button></Link> </td>
                  </tr>
-              </tbody>     
-  
-            </Table>
+               
+                </tbody>
+                </Table>
+        
                 </CardBody> 
                  
                 
@@ -71,7 +72,7 @@ const View =(props) =>{
              
                     <thead>
                      <tr>
-                     <th>id</th>
+                 {/* <th>id</th>  */}
                     <th> Name</th>
                     <th>email</th>
 
@@ -82,7 +83,7 @@ const View =(props) =>{
 
                     </tr>
                 </thead>
-                
+               
            
             </Table>
                 </CardBody> 
@@ -91,9 +92,9 @@ const View =(props) =>{
            
         </Card>
         </div>
-        {view}
         
-       
+        
+         {view}
            
            </React.Fragment>     
            

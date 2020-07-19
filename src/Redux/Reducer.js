@@ -1,4 +1,4 @@
-import { Detail } from '../shared/detail';
+import { Detail } from './detail';
 
 export const initialState = {
     detail: Detail

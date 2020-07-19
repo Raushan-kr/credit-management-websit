@@ -35,6 +35,7 @@ class PersonDetail extends Component{
       }
     handlesubmit(event){
         alert(this.state.value+this.state.amount)
+        this.props.postTransfer( this.props.detail.name,this.state.value,this.state.amount)
         event.preventDefault();
         this.setState({
             value:"gopi",
@@ -50,7 +51,7 @@ class PersonDetail extends Component{
        
       }
     renderviewItem(detail) {
-   
+        
         return (
             <Card>
                  <CardBody> 
@@ -132,9 +133,10 @@ render(){
                          </CardHeader>   
                     <CardBody>
                     <dl className="">
-                                        <dt className="col-6 offset-sm-2">From :</dt>
+                    <div className="row">
+                                        <dt className="col-6">From :</dt>
                                         <dd className="col-4">{this.props.detail.name}</dd>
-                                        
+                         </div>               
                                         
 <Form onSubmit={this.handlesubmit}>
                                            
