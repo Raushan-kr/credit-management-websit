@@ -1,1 +1,1 @@
-export const baseUrl = 'http://localhost:5000/';
+export const baseUrl = 'http://https://guarded-bastion-13594.herokuapp.com/';
