@@ -1,7 +1,7 @@
 import React from 'react';
 import {Jumbotron, Button} from 'reactstrap';
 
-
+import {Card,CardBody,Table} from 'reactstrap'
 
 
 
@@ -11,6 +11,39 @@ function RenderComments({comments})
   
   if(comments!=null)
 
+    // return(
+      
+    //   <h4>Transfer</h4>
+      
+    //   {comments.map((comment)=>{
+    //     return(
+         
+    //       <Card key={comment._id}>
+            
+    //         <CardBody> 
+            
+    //           <Table striped bordered hover>
+    //             <tbody>
+              
+    //               <tr>
+    //             {/* <td>{(detail.id)}</td>  */}
+    //                 <td>{comment.fromname}</td>
+    //                 <td>{comment.toname}</td>
+    //                 <td>{comment.amount}</td>
+                
+    //               </tr>
+              
+    //           </tbody>
+    //          </Table>
+     
+    //          </CardBody> 
+              
+             
+        
+    //       </Card>
+    //     );}
+    //     )}
+    //   );
     return(
       <div>
       <h4>Transfer</h4>
@@ -18,15 +51,19 @@ function RenderComments({comments})
 
       {comments.map((comment)=>{
         return(
-          <li key={comment._id}>
-                <p>transfer from name: </p>
-              <p>{comment.fromname}</p>
-              <p>transfer to name: </p>
-              <p>{comment.toname}</p>
-
-              <p>{comment.amount}</p> 
-              
-          </li>
+          <Card key={comment._id}>
+              <CardBody> 
+                <Table striped bordered hover>
+                  <tbody>
+                    <tr>
+                    <td>{comment.fromname}</td>
+                    <td>{comment.toname}</td>
+                    <td>{comment.amount}</td>
+                    </tr>
+                  </tbody>
+                </Table>
+              </CardBody>  
+          </Card>
 
         );
       }
@@ -37,6 +74,8 @@ function RenderComments({comments})
       </ul>
     </div>
     );
+   
+
   else
     return(
         <div></div>
@@ -60,7 +99,7 @@ const  Transfer = (props) => {
         <Button variant="light">Learn more</Button>
     </p> 
 </Jumbotron> 
-      <div ClassName="container">
+      <div className="container">
         <div className="row">
           
         </div>
